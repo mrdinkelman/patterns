@@ -1,6 +1,6 @@
 <?php
 
-namespace Patterns\QuakBehaviour;
+namespace Patterns\Strategy\QuackBehaviour;
 
 interface IQuackBehavior
 {

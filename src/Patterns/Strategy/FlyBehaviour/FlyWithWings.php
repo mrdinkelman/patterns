@@ -8,6 +8,6 @@ class FlyWithWings implements IFlyBehavior
 
     public function fly()
     {
-        echo self::MESSAGE;
+        return self::MESSAGE;
     }
 }
