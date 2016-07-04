@@ -4,6 +4,7 @@
     },
     "autoload": {
         "psr-4": {
+            "Helpers\\": "src/Helpers",
             "Patterns\\": "src/Patterns",
             "Tests\\Patterns\\": "tests/Patterns"
         }
