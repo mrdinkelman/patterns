@@ -19,8 +19,17 @@ Intent
 
 ![alt tag](strategy-with-associations.png?raw=true "With associations")
 
-# Another good Strategy example:
+# Another good Strategy examples:
+
+ENG:
 
 A Strategy defines a set of algorithms that can be used interchangeably. Modes of transportation to an airport is an example of a Strategy. Several options exist such as driving one's own car, taking a taxi, an airport shuttle, a city bus, or a limousine service. For some airports, subways and helicopters are also available as a mode of transportation to the airport. Any of these modes of transportation will get a traveler to the airport, and they can be used interchangeably. The traveler must chose the Strategy based on trade offs between cost, convenience, and time
 
 https://sourcemaking.com/design_patterns/strategy
+
+RUS:
+
+Используется для выбора различных путей получения результата. Вспомним пример с получением прав. Человек, который будет реализовывать паттерн «стратегия» будет действовать следующим образом: вы говорите ему «Хочу права, денег мало» в ответ вы получите права через длительное время и с большой тратой ресурсов. Если вы скажите ему «Хочу права, денег много», то вы получите права очень быстро. Что именно делал этот человек вы понятия не имеете, но вы задаете начальные условия, а как себя вести уже решает он сам (сам выбирает стратегию).
+Соответственно внутри «стратегии» хранятся различные способы поведения, и чтобы выбрать, ему нужны определенные параметры, в данном случае это объем денежных средств. Как устроена сама «стратегия» и какие алгоритмы внутри нее вам собственно знать и требуется.
+
+https://habrahabr.ru/post/136766/
