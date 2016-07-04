@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * PHP version: 5.6+
+ */
 namespace Patterns\Strategy;
 
 use Patterns\Strategy\FlyBehaviour\IFlyBehavior;
@@ -11,7 +13,10 @@ use Patterns\Strategy\QuackBehaviour\IQuackBehavior;
  */
 abstract class BaseDuck
 {
-    const MESSAGE = "Hello, I'm %s\n";
+    const MESSAGE = "Hello, I'm %s";
+
+    const MESsAGE_SWIM = "%s: All ducks can swim";
+    const MESSAGE_METHOD = "%s: %s";
 
     protected $quackBehaviour;
     protected $flyBehavior;
@@ -29,31 +34,49 @@ abstract class BaseDuck
     }
 
     /**
+     * Display: common for all ducks
+     *
      * @return mixed
      */
     abstract public function display();
 
     /**
+     * Quack!
+     *
      * @return $this
      */
     public function performQuack()
     {
-        return sprintf("%s: %s\n", __METHOD__, $this->quackBehaviour->quack());
+        return sprintf(self::MESSAGE_METHOD, __METHOD__, $this->quackBehaviour->quack());
     }
 
     /**
+     * Fly!
+     *
      * @return string
      */
     public function performFly()
     {
-        return sprintf("%s: %s\n", __METHOD__, $this->flyBehavior->fly());
+        return sprintf(self::MESSAGE_METHOD, __METHOD__, $this->flyBehavior->fly());
     }
 
+    /**
+     * All ducks can swim in any case
+     *
+     * @return string
+     */
     public function swim()
     {
-        return sprintf("%s: All ducks can swim\n", __METHOD__);
+        return sprintf(self::MESsAGE_SWIM, __METHOD__);
     }
 
+    /**
+     * Runtime change for fly behaviour
+     *
+     * @param IFlyBehavior $flyBehavior
+     *
+     * @return $this
+     */
     public function setFlyBehavior(IFlyBehavior $flyBehavior)
     {
         $this->flyBehavior = $flyBehavior;
@@ -61,6 +84,13 @@ abstract class BaseDuck
         return $this;
     }
 
+    /**
+     * Runtime change for quack behaviour
+     *
+     * @param IQuackBehavior $quackBehaviour
+     *
+     * @return $this
+     */
     public function setQuackBehaviour(IQuackBehavior $quackBehaviour)
     {
         $this->quackBehaviour = $quackBehaviour;
@@ -69,6 +99,8 @@ abstract class BaseDuck
     }
 
     /**
+     * Get current quack behaviour
+     *
      * @return IQuackBehavior
      */
     public function getQuackBehaviour()
@@ -77,15 +109,12 @@ abstract class BaseDuck
     }
 
     /**
+     * Get current fly behaviour
+     *
      * @return IFlyBehavior
      */
     public function getFlyBehavior()
     {
         return $this->flyBehavior;
     }
-
-
-
-
-
 }
