@@ -6,10 +6,21 @@ RUS: https://ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D0%B0%D1%82%D0%B5%D0%B3%D0
 
 ENG: https://en.wikipedia.org/wiki/Strategy_pattern
 
-### UML (without assotiations)
+Intent
+
+* Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from the clients that use it.
+* Capture the abstraction in an interface, bury implementation details in derived classes.
+
+### UML (without associations)
 
 ![alt tag](strategy-without-associations.png?raw=true "Without associations")
 
-### UML (with assotiations)
+### UML (with associations)
 
 ![alt tag](strategy-with-associations.png?raw=true "With associations")
+
+# Another good Strategy example:
+
+A Strategy defines a set of algorithms that can be used interchangeably. Modes of transportation to an airport is an example of a Strategy. Several options exist such as driving one's own car, taking a taxi, an airport shuttle, a city bus, or a limousine service. For some airports, subways and helicopters are also available as a mode of transportation to the airport. Any of these modes of transportation will get a traveler to the airport, and they can be used interchangeably. The traveler must chose the Strategy based on trade offs between cost, convenience, and time
+
+https://sourcemaking.com/design_patterns/strategy
