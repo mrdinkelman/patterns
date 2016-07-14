@@ -1,13 +1,30 @@
 <?php
+/**
+ * PHP version: 5.6+
+ */
+namespace Helpers;
 
-namespace Helpers\ObjectHash;
-
-class ObjectHashHelper implements IObjectHash
+/**
+ * Class ObjectHashHelper
+ * @package Helpers\ObjectHash
+ */
+class ObjectHashHelper
 {
+    /**
+     * Default message related to un-exists hash function
+     */
     const EXCEPT_MESSAGE = "Unable to calculate has for object '%s'. Function '%s' doesn't exists";
 
+    /**
+     * Standard hash function name or user hash function
+     * @var string
+     */
     protected $encryptFunctionName;
 
+    /**
+     * ObjectHashHelper constructor.
+     * @param string $encryptFunctionName
+     */
     public function __construct($encryptFunctionName = 'sha1')
     {
         $this->encryptFunctionName = strtolower($encryptFunctionName);
@@ -22,10 +39,11 @@ class ObjectHashHelper implements IObjectHash
      *
      * @return string
      */
-    public function calculateHash($object, $except = array())
+    public function calculateHash($object, $except = [])
     {
         $converted = new \stdClass();
 
+        // skip all except properties
         foreach ($object as $prop => $value) {
             if (in_array($prop, $except)) {
                 continue;

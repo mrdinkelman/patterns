@@ -5,10 +5,10 @@
 namespace Patterns\Observer\Observers;
 
 /**
- * Class CurrentConditionDisplay
+ * Class ForecastDisplay
  * @package Patterns\Observer\Observers
  */
-class CurrentConditionDisplay implements IObserver, IDisplay
+class ForecastDisplay implements IObserver, IDisplay
 {
     /**
      * Temperature
@@ -31,10 +31,10 @@ class CurrentConditionDisplay implements IObserver, IDisplay
     /**
      * Message for displaying
      */
-    const MESSAGE = "Current values: temperature %s C, humidity %s percentages, pressure %s GPa";
+    const MESSAGE = "Forecast values: temperature %s C, humidity %s percentages, pressure %s GPa";
 
     /**
-     * Update current display
+     * Fake update forecast, just simple multiplies
      *
      * @param float $temperature temperature, degrees celsius
      * @param float $humidity    humidity
@@ -44,9 +44,9 @@ class CurrentConditionDisplay implements IObserver, IDisplay
      */
     public function update($temperature, $humidity, $pressure)
     {
-        $this->temperature = $temperature;
-        $this->humidity = $humidity;
-        $this->pressure = $pressure;
+        $this->temperature = $temperature * 1.1;
+        $this->humidity = $humidity * 1.2;
+        $this->pressure = $pressure * 1.3;
 
         $this->displayElement();
 
@@ -54,7 +54,7 @@ class CurrentConditionDisplay implements IObserver, IDisplay
     }
 
     /**
-     * Show current value in display
+     * Display current 'forecast'
      *
      * @return string
      */

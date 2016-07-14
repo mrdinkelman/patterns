@@ -1,7 +1,7 @@
 <?php
 namespace Tests\Helpers\ObjectHash;
 
-use Helpers\ObjectHash\ObjectHashHelper;
+use Helpers\ObjectHashHelper;
 
 class ObjectHashHelperTest extends \PHPUnit_Framework_TestCase
 {
